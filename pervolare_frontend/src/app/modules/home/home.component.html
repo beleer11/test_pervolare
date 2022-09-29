@@ -1,0 +1,11 @@
+<mat-tab-group mat-align-tabs="end" animationDuration="1000ms">
+    <mat-tab label="Inicio"><app-list></app-list></mat-tab>
+    <mat-tab label="Productos"><app-product></app-product></mat-tab>
+    <mat-tab label="Atributos"><app-attributes></app-attributes></mat-tab>
+    <mat-tab disabled>
+        <ng-template mat-tab-label>
+            <button class="btn btn-danger" (click)="logout()" [disabled]="loading">Logout</button>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>
+

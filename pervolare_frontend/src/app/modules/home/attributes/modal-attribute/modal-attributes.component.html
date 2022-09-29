@@ -1,0 +1,48 @@
+<div class="logo-contenedor" *ngIf="loading">
+  <img src="../../../../assets/loading.gif" class="centrar" alt="...">
+</div>
+<div  *ngIf="!loading">
+  <div class="modal-header">
+    <h4 class="modal-title">{{id ? 'Editar': 'Crear'}} Atributo</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.close(false)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="container">
+    <form [formGroup]="form" class="needs-validation">
+      <label>Nombre:</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+              <i class="fa-solid fa-bag-shopping"></i>
+          </span>
+        </div>
+        <input type="text" class="form-control" formControlName="product" placeholder="Atributo" validateInput>
+        <div class="invalid-feedback">
+          {{form.get('username') | messageError}}
+        </div>
+      </div>      
+      <label>Tipo:</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend" style="width: 9%">
+          <span class="input-group-text">
+              <i class="fa-solid fa-keyboard"></i>
+          </span>
+        </div>
+        <ng-select (change)="changeSelect($event)" *ngIf="types.length > 0" ng-init="selectType='Marca'" formControlName="selectType" style="width: 91%" [placeholder]="'Tipo atributo'" [clearable]="true">
+          <ng-option *ngFor="let type of types; let index = index" [value]="type['id']">{{type['name']}}</ng-option>
+        </ng-select>
+        <span *ngIf="types.length === 0" class="input-group-text">Debes ingresar tipos de atributos</span>
+        <div class="invalid-feedback">
+          {{form.get('username') | messageError}}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block mb-3" (click)="submit()">Guardar</button>
+    </form>
+  </div>
+</div>
+
+
+
+  
+  

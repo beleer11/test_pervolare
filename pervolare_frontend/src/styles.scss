@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,400;1,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.column-actions {
+  text-align: center;
+}
+
+th.column-actions {
+  width: 8rem;
+}
+
+.swal2-modal {
+  z-index: 50;
+}
+
+.centrar{
+  margin:auto;
+  display:block;
+}
+
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

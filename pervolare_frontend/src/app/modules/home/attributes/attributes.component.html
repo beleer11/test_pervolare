@@ -1,0 +1,40 @@
+<div class="logo-contenedor" *ngIf="loading">
+  <img src="../../../../assets/loading.gif" class="centrar" alt="...">
+</div>
+<div *ngIf="attributes?.length == 0 && loading === false">
+    <span>No hay productos por mostrar</span>
+</div>
+<div class="container col-md-8 align-self-center">
+  <div class="table-responsive-sm" *ngIf="attributes?.length > 0 && loading == false">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Tipo</th>     
+          <th scope="col">Descripcion</th>      
+          <th scope="col" class="column-actions">
+            <button type="button" class="btn btn-success btn-sm" (click)="openAttributeModal(0)">
+              <i class="fas fa-plus"></i>&nbsp;Nuevo</button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attribute of attributes">
+          <td>{{attribute.name}}</td>
+          <td>{{attribute.name_type}}</td>
+          <td>{{attribute.description}}</td>
+          <td class="overflow-hidden column-actions">
+            <div ngbDropdown container="body">
+              <div>
+                <button title="Editar" class="btn btn-primary" (click)="openAttributeModal(attribute.id)"><span class="fa-solid fa-pen-to-square"></span></button>
+                <button title="Eliminar" class="btn btn-danger"(click)="delete(attribute.id)"><span class="fa-solid fa-trash"></span></button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

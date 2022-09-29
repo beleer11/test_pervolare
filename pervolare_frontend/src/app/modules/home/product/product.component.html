@@ -1,0 +1,108 @@
+<div id="register" class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="col-md-10 col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="form" class="needs-validation">
+          <label>Producto:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa-solid fa-shirt"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" formControlName="product" placeholder="Producto" validateInput>
+            <div class="invalid-feedback">
+              {{form.get('username') | messageError}}
+            </div>
+          </div>
+          <label>Color:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa-solid fa-palette"></i>
+              </span>
+            </div>
+            <ng-select *ngIf="colors.length > 0" [multiple]="true" class="custom" formControlName="selectColor" style="width: auto" placeholder="Color">
+              <ng-option *ngFor="let color of colors; let index = index" [value]="color['id']">{{color['name']}}</ng-option>
+            </ng-select>
+            <span *ngIf="colors.length === 0" class="input-group-text">Debes ingresar colores en la base de datos</span>
+            <div class="invalid-feedback">
+              {{form.get('username') | messageError}}
+            </div>
+          </div>
+          <label>Talla:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa-solid fa-ruler"></i>
+              </span>
+            </div>
+            <ng-select *ngIf="sizes.length > 0" [multiple]="true" class="custom" formControlName="selectSize" style="width: auto" placeholder="Talla">
+              <ng-option *ngFor="let size of sizes; let index = index" [value]="size['id']">{{size['name']}}</ng-option>
+            </ng-select>
+            <span *ngIf="sizes.length === 0" class="input-group-text">Debes ingresar tallas en la base de datos</span>
+            <div class="invalid-feedback">
+              {{form.get('username') | messageError}}
+            </div>
+          </div>
+          <label>Marca:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa-solid fa-copyright"></i>
+              </span>
+            </div>
+            <ng-select *ngIf="brands.length > 0" [multiple]="true" class="custom" formControlName="selectBrand" style="width: auto" placeholder="Marca">
+              <ng-option *ngFor="let brand of brands; let index = index" [value]="brand['id']">{{brand['name']}}</ng-option>
+            </ng-select>
+            <span *ngIf="brands.length === 0" class="input-group-text">Debes ingresar marcas en la base de datos</span>
+            <div class="invalid-feedback">
+              {{form.get('username') | messageError}}
+            </div>
+          </div>     
+          <label>Fábrica:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa-solid fa-industry"></i>
+              </span>
+            </div>
+            <ng-select *ngIf="factorys.length > 0" [multiple]="true" class="custom" formControlName="selectFactory" style="width: auto" placeholder="Fábrica">
+              <ng-option *ngFor="let factory of factorys; let index = index" [value]="factory['id']">{{factory['name']}}</ng-option>
+            </ng-select>
+            <span *ngIf="factorys.length === 0" class="input-group-text">Debes ingresar marcas en la base de datos</span>
+            <div class="invalid-feedback">
+              {{form.get('username') | messageError}}
+            </div>
+          </div>       
+          <label>Precio:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa-solid fa-money-bill"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" formControlName="value" placeholder="Precio" [value]="cantidad" (change)="updateValue($event.target)" validateInput>
+            <div class="invalid-feedback">
+              {{form.get('username') | messageError}}
+            </div>
+          </div>
+          <label>Descripción:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fa-solid fa-pencil"></i>
+              </span>
+            </div>
+            <textarea type="textarea" class="form-control" formControlName="description" placeholder="Descripción" validateInput></textarea>
+            <div class="invalid-feedback">
+              {{form.get('password') | messageError}}
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="submit()">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

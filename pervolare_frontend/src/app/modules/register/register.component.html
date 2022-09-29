@@ -1,0 +1,52 @@
+<div id="register" class="container-fluid d-flex justify-content-center align-items-center">
+  <div class=" col-md-10 col-lg-3">
+    <div class="card">
+      <div class="card-header text-center">
+          Registro
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" class="needs-validation">
+          <label>Nombre:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="far fa-user"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" formControlName="username" placeholder="Nombre" validateInput>
+            <div class="invalid-feedback">
+              {{form.get('username') | messageError}}
+            </div>
+          </div>
+          <label>Email:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="far fa-envelope"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" formControlName="email" placeholder="Email" validateInput>
+            <div class="invalid-feedback">
+              {{form.get('username') | messageError}}
+            </div>
+          </div>
+          <label>Contraseña:</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="fas fa-key"></i>
+              </span>
+            </div>
+            <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" validateInput>
+            <div class="invalid-feedback">
+              {{form.get('password') | messageError}}
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="submit()">Guardar</button>
+          <button type="button" class="btn btn-success btn-lg btn-block" (click)="salir()">Salir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

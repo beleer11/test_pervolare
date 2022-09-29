@@ -1,0 +1,25 @@
+<div class="logo-contenedor" *ngIf="loading">
+  <img src="../../../../assets/loading.gif" class="centrar" alt="...">
+</div>
+<div *ngIf="products?.length == 0 && loading === false">
+    <span>No hay productos por mostrar</span>
+</div>
+<div class="row" *ngIf="products?.length > 0 && loading == false">
+  <div *ngFor="let product of products" class="col-sm-3 mt-3 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">{{product['name_product']}}</h3>
+        <p class="card-text"><b>Descripción:</b> {{product['description_product']}}</p>
+        <p class="card-text" style="color: green;"><b>Precio:</b> {{product['value'] | currency}}</p>
+        <div *ngIf="product['attributes'].length > 0" class="mb-2 text-center"><b>Stock</b>
+          <p *ngFor="let attribute of product['attributes']"class="card-text">{{attribute['name_type'] + ' : ' + attribute['name']}}</p>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary" (click)="editProduct(product['id_product'])"><span class="fa-solid fa-pen-to-square"></span></button>
+          <button title="Eliminar" class="btn btn-danger"(click)="delete(product['id_product'])"><span class="fa-solid fa-trash"></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
