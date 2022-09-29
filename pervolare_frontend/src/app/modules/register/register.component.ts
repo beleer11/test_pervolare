@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
 
     let data = {
       'username' : this.form.controls['username'].value,
-      'email' : this.form.controls['controls'].value,
+      'email' : this.form.controls['email'].value,
       'password' : this.form.controls['password'].value
     };
 

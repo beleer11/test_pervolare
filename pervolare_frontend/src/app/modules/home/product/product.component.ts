@@ -75,7 +75,7 @@ export class ProductComponent implements OnInit {
       .subscribe((res: any) => {
         // Navigate to home page
         this._sharedService.showAlert(res.type_message, res.message);
-        this.form.reset();
+        window.location.reload();
       }, (err: any) => {
         // This error can be internal or invalid credentials
         // You need to customize this based on the error.status code
